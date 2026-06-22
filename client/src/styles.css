@@ -254,6 +254,61 @@ select {
   color: #64748b;
 }
 
+.field-label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.radio-fieldset {
+  border: none;
+  margin: 0 0 12px;
+  padding: 0;
+}
+
+.radio-fieldset legend {
+  padding: 0;
+}
+
+.radio-group {
+  display: grid;
+  gap: 8px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.radio-option:hover {
+  border-color: var(--primary);
+  background: #f8fafc;
+}
+
+.radio-option.selected {
+  border-color: var(--primary);
+  background: #eff6ff;
+}
+
+.radio-option input[type="radio"] {
+  width: auto;
+  margin: 0;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.radio-option span {
+  font-size: 14px;
+}
+
 @media (max-width: 700px) {
   .nav-inner {
     flex-direction: column;

@@ -10,7 +10,7 @@ router.post(
   "/create",
   authRequired,
   requireRole("USER"),
-  [body("lat").isFloat({ min: -90, max: 90 }), body("lng").isFloat({ min: -180, max: 180 })],
+  [body("lat").isFloat({ min: -90, max: 90 }), body("lng").isFloat({ min: -180, max: 180 }), body("ambulanceType").isIn(["basic", "advanced", "icu"])],
   createRequest
 );
 

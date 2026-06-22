@@ -7,7 +7,7 @@ async function createRequest(req, res) {
   const errors = validationResult(req);
   if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
 
-  const { lat, lng } = req.body;
+  const { lat, lng, ambulanceType } = req.body;
   const userId = req.user.id;
 
   const availableAmbulances = await prisma.ambulance.findMany({
@@ -30,6 +30,7 @@ async function createRequest(req, res) {
       userId,
       lat,
       lng,
+      ambulanceType,
       status: chosen ? "pending" : "pending",
       ambulanceId: chosen ? chosen.id : null,
     },

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { api } from "../services/api";
 import { getSocket } from "../services/socket";
 import StatusBadge from "../components/StatusBadge";
+import { formatAmbulanceType } from "../constants/ambulanceTypes";
 
 export default function DriverDashboard() {
   const [requests, setRequests] = useState([]);
@@ -102,6 +103,7 @@ export default function DriverDashboard() {
                   <p>
                     Lat/Lng: {r.lat}, {r.lng}
                   </p>
+                  <p>Type: {formatAmbulanceType(r.ambulanceType)}</p>
                   <StatusBadge status={r.status} />
                 </div>
                 {r.status === "pending" && (

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { api } from "../services/api";
 import { getSocket } from "../services/socket";
 import StatusBadge from "../components/StatusBadge";
+import { formatAmbulanceType } from "../constants/ambulanceTypes";
 
 export default function UserDashboard() {
   const [requestId, setRequestId] = useState(localStorage.getItem("uas_last_request") || "");
@@ -62,6 +63,9 @@ export default function UserDashboard() {
             </p>
             <p>
               <strong>Location:</strong> {request.lat}, {request.lng}
+            </p>
+            <p>
+              <strong>Ambulance Type:</strong> {formatAmbulanceType(request.ambulanceType)}
             </p>
             <Link className="btn secondary" to={`/track/${request.id}`}>
               Open Live Tracking

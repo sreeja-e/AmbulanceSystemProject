@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { api } from "../services/api";
 import StatusBadge from "../components/StatusBadge";
+import { formatAmbulanceType } from "../constants/ambulanceTypes";
 
 export default function AdminDashboard() {
   const [requests, setRequests] = useState([]);
@@ -80,6 +81,7 @@ export default function AdminDashboard() {
                   <p>
                     Driver: {r.ambulance?.driver?.name || "Not assigned"} | {r.lat}, {r.lng}
                   </p>
+                  <p>Type: {formatAmbulanceType(r.ambulanceType)}</p>
                 </div>
                 <StatusBadge status={r.status} />
               </div>

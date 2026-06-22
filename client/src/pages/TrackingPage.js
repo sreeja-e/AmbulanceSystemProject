@@ -4,6 +4,7 @@ import { api } from "../services/api";
 import { getSocket } from "../services/socket";
 import TrackingMap from "../components/TrackingMap";
 import StatusBadge from "../components/StatusBadge";
+import { formatAmbulanceType } from "../constants/ambulanceTypes";
 
 export default function TrackingPage() {
   const { id } = useParams();
@@ -59,6 +60,9 @@ export default function TrackingPage() {
         </p>
         <p>
           <strong>User location:</strong> {request.lat}, {request.lng}
+        </p>
+        <p>
+          <strong>Ambulance Type:</strong> {formatAmbulanceType(request.ambulanceType)}
         </p>
       </section>
       <section className="card">
